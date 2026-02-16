@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Amlabudiasa Ikomang</title>
+
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #38bdf8;
+    }
+
+    section {
+      padding: 40px 10%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .about {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .about img {
+      width: 250px;
+      border-radius: 12px;
+    }
+
+    .skills, .hobbies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      background: #334155;
+    }
+
+    .card img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e293b;
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+  </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function App() {
+
+  const skills = [
+    { name: "HTML", img: "https://cdn-icons-png.flaticon.com/512/732/732212.png" },
+    { name: "CSS", img: "https://cdn-icons-png.flaticon.com/512/732/732190.png" },
+    { name: "JavaScript", img: "https://cdn-icons-png.flaticon.com/512/5968/5968292.png" },
+    { name: "React JS", img: "https://cdn-icons-png.flaticon.com/512/1126/1126012.png" }
+  ];
+
+  const hobbies = [
+    { name: "Gym", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400" },
+    { name: "Memancing", img: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=400" }
+  ];
+
+  return (
+    <div>
+      <header>
+        <h1>Amlabudiasa Ikomang</h1>
+        <p>Mahasiswa IT | Guru Komputer | Web Developer</p>
+      </header>
+
+      <section>
+        <h2>Tentang Saya</h2>
+        <div className="about">
+          <img src="https://images.unsplash.com/photo-1603415526960-f8f0b8b8b6b3?w=400" alt="profile"/>
+          <div>
+            <p>
+              Saya adalah mahasiswa jurusan IT dan juga bekerja sebagai guru komputer 
+              di SDS Saraswati Sukawati. Saya memiliki minat besar dalam pengembangan 
+              website dan sistem informasi sekolah.
+            </p>
+            <p style={{marginTop:"10px"}}>
+              Saya juga menyukai musik pop, rock, heavy metal, dan band favorit saya 
+              seperti Oasis, Green Day, The Beatles, Avenged Sevenfold, Sheila On 7, dan Dewa 19.
+            </p>
+            <button onClick={() => alert("Terima kasih sudah mengunjungi portfolio saya!")}>
+              Hubungi Saya
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skill Saya</h2>
+        <div className="skills">
+          {skills.map((skill, index) => (
+            <div className="card" key={index}>
+              <img src={skill.img} alt={skill.name}/>
+              <h3>{skill.name}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <h2>Hobi Saya</h2>
+        <div className="hobbies">
+          {hobbies.map((hobby, index) => (
+            <div className="card" key={index}>
+              <img src={hobby.img} alt={hobby.name}/>
+              <h3>{hobby.name}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <footer>
+        <p>© 2026 Amlabudiasa Ikomang | Portfolio Website</p>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+
+</body>
+</html>
